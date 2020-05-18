@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0beta2 (2b71d25, 2019-12-03)"
+   height="28.110943"
+   width="52.246235"
+   sodipodi:docname="downArrow.svg"
+   id="svg35"
+   viewBox="0 0 52.246235 28.110943"
+   y="0px"
+   x="0px"
+   version="1.1">
+  <metadata
+     id="metadata41">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs39" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg35"
+     inkscape:window-maximized="0"
+     inkscape:window-y="23"
+     inkscape:window-x="0"
+     inkscape:cy="26.555467"
+     inkscape:cx="26.123117"
+     inkscape:zoom="2.176"
+     showgrid="false"
+     id="namedview37"
+     inkscape:window-height="881"
+     inkscape:window-width="1512"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     inkscape:document-rotation="0"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <g
+     id="g29"
+     transform="translate(-23.876883,-988.30671)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path27"
+       overflow="visible"
+       display="inline"
+       visibility="visible"
+       marker="none"
+       fill-opacity="1"
+       fill="#000000"
+       d="m 49.5312,988.32782 a 5.0005,5.0005 0 0 0 -2.7812,1.1875 l -21,17.99998 a 5.0005,5.0005 0 1 0 6.5,7.5938 L 50,999.89029 67.75,1015.1091 a 5.0005,5.0005 0 1 0 6.5,-7.5938 l -21,-17.99998 a 5.0005,5.0005 0 0 0 -3.7188,-1.1875 z"
+       style="color:#000000;text-indent:0;text-transform:none;direction:ltr;baseline-shift:baseline;enable-background:accumulate" />
+  </g>
+</svg>
