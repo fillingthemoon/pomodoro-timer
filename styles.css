@@ -1,10 +1,11 @@
 .layout-container {
-    background-color: #fdfffc;
+    background-color: #131636;
+    border-radius: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Comfortaa; 
-    height: 95vh;
+    height: 98vh;
     width: 99vw;
 }
 
@@ -12,10 +13,11 @@ header {
     order: 1;
 
     text-align: center;
+    margin-bottom: 50px;
 }
 
 h1 {
-    color: #011627;
+    color: #47e4bb;
     font-size: 2.5em;
     font-weight: bold;
     letter-spacing: 4px;
@@ -24,19 +26,20 @@ h1 {
 }
 
 h2 {
+    color: #47e4bb;
     font-weight: normal;
     letter-spacing: 2px;
 }
 
 a {
-    color: #e71d36;
+    color: #fcd307;
     text-decoration: none;
     font-weight: bold;
     transition: 0.2s;
 }
 
 a:hover {
-    color: #011627;
+    color: #ff5858;
 }
 
 .timer-container {
@@ -61,10 +64,10 @@ a:hover {
     font-weight: bold;
     font-size: 6em;
     letter-spacing: 0.2em;
-    color: #011627;
+    color: #f2f4f7;
     text-indent: 0.2em;
-    border-radius: 20px;
-    border: 4px solid #011627;
+    border-radius: 30px;
+    border: 4px solid #f2f4f7;
     padding: 5px;
 }
 
@@ -92,11 +95,11 @@ img {
 }
 
 .start, .pause {
-    filter: invert(9%) sepia(12%) saturate(6987%) hue-rotate(175deg) brightness(93%) contrast(107%);
+    filter: invert(94%) sepia(84%) saturate(733%) hue-rotate(83deg) brightness(98%) contrast(82%);
 }
 
 .stop, .reset {
-    filter: invert(19%) sepia(69%) saturate(6610%) hue-rotate(345deg) brightness(95%) contrast(90%);
+    filter: invert(55%) sepia(79%) saturate(4336%) hue-rotate(330deg) brightness(109%) contrast(101%);
 }
 
 .control:hover {
@@ -134,8 +137,9 @@ img {
 }
 
 #session-duration, #break-duration {
+    color: #6b76ff;
     font-family: Comfortaa;
-    font-size: 1.3em;
+    font-size: 1.4em;
     outline: none;
 } 
 
@@ -143,15 +147,21 @@ img {
     font-family: Comfortaa;
     font-size: 3em;
     font-weight: bold;
-    color: #011627;
+    color: #6b76ff;
     letter-spacing: 2px;
 }
 
-#inc, #dec {
+.adjust-session, .adjust-break {
+    background-color: transparent;
+    border: transparent;
+    outline: none;
+}
+
+img#inc, img#dec {
     border: transparent;
     background-color: transparent;
     outline: none;
-    filter: invert(68%) sepia(49%) saturate(1976%) hue-rotate(351deg) brightness(102%) contrast(98%);
+    filter: invert(74%) sepia(93%) saturate(1336%) hue-rotate(357deg) brightness(109%) contrast(98%);
     transition: 0.2s;
 }
 
@@ -166,8 +176,9 @@ img {
 p {
     font-size: 0.8em;
     margin: 10px;
-    color: gray;
+    color: DarkGray;
     bottom: 0;
+    padding: 15px;
     position: absolute;
 }
 
@@ -177,7 +188,7 @@ path:hover {
 
 .bottom {
     order: 3;
-    height: 200px;
+    height: 900px;
     width: 100vw;
     font-size: 0.8em;
     text-align: left;

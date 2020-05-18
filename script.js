@@ -26,10 +26,7 @@ for (i of controlsArr) {
     control.appendChild(img);
     controlsContainer.appendChild(control);
 }
-
 timerContainer.appendChild(controlsContainer);
-
-
 
 const adjustContainer = document.createElement('div');
 adjustContainer.classList.add('adjust-container');
@@ -46,6 +43,8 @@ for (i of sessionArr) {
         adjustSession.textContent = '';
         let img = document.createElement('img');
         img.src = i == 'inc' ? 'icons/inc.svg' : 'icons/dec.svg';
+        img.classList.add('adjust-session');
+        img.id = i;
         adjustSession.appendChild(img);
     } 
     adjustSessionContainer.appendChild(adjustSession);
@@ -63,6 +62,8 @@ for (i of breakArr) {
         adjustBreak.textContent = '';
         let img = document.createElement('img');
         img.src = i == 'inc' ? 'icons/inc.svg' : 'icons/dec.svg';
+        img.classList.add('adjust-break');
+        img.id = i;
         adjustBreak.appendChild(img);
     } 
     adjustBreakContainer.appendChild(adjustBreak);
@@ -75,30 +76,118 @@ timerContainer.appendChild(adjustContainer);
 
 // function
 const buttons = document.querySelector('.layout-container'); 
-const clickedPlay = buttons.addEventListener('click', clickedPlayEvent);
-const clickedPause = buttons.addEventListener('click', clickedPauseEvent);
-let paused = false;
 
-function clickedPlayEvent(e) {
-    if (e.target.classList.contains('start')) {
-        console.log('start');
-        paused = false;
-        let minutes = 25;
-        let seconds = 0;
-        let theInterval = setInterval(function() { 
-            minutes--;
-            display.textContent = minutes + ':00';
-            console.log('hi');
-            if (minutes == 0 || paused == true) {
-                clearInterval(theInterval);
-            }
-        }, 1000);
+const clickedSessionInc = buttons.addEventListener('mousedown', clickedIncDecEvent);
+const sessionDuration = document.getElementById('twenty-five'); 
+let twentyFive = 25;
+const breakDuration = document.getElementById('five'); 
+let five = 5;
+
+let time = twentyFive * 60;
+let breakTime = false;
+
+function clickedIncDecEvent(e) {
+    if (e.target.classList.contains('adjust-session')) {
+        if (e.target.id == 'inc') {
+            twentyFive = twentyFive < 59 ? twentyFive + 1 : twentyFive;
+        } else if (e.target.id == 'dec') {
+            twentyFive = twentyFive > 1 ? twentyFive - 1 : twentyFive;
+        }
+        sessionDuration.textContent = twentyFive + ':00';
+        if (breakTime == false) {
+            time = twentyFive * 60;
+            display.textContent = twentyFive + ':00';
+        }
+    } else if (e.target.classList.contains('adjust-break')) {
+        if (e.target.id == 'inc') {
+            five = five < 59 ? five + 1 : five;
+        } else if (e.target.classList.contains('adjust-break') && e.target.id == 'dec') {
+            five = five > 1 ? five - 1 : five;
+        }
+        breakDuration.textContent = five + ':00';
+        if (breakTime == true) {
+            time = five * 60;
+            display.textContent = five + ':00';
+        }
     }
+}
+
+const clickedPlay = buttons.addEventListener('click', clickedStartEvent);
+const clickedPause = buttons.addEventListener('click', clickedPauseEvent);
+const clickedStop = buttons.addEventListener('click', clickedStopEvent);
+const clickedReset = buttons.addEventListener('click', clickedResetEvent);
+
+let halted = false;
+function clickedStartEvent(e) {
+    if (e.target.classList.contains('start')) {
+        startTimer();
+    }
+}
+
+function startTimer() {
+    if (halted == true) {
+        halted = false;
+    }
+    let theInterval = setInterval(function() { 
+        time--;
+        if (time == 0 || halted == true) {
+            time = halted == true ? time + 1 : time;
+            clearInterval(theInterval);
+            if (time == 0) {
+                breakTime = breakTime == false ? true : false;
+                endOfTime();
+            }
+        }
+        minutes = Math.floor(time / 60);
+        seconds = time % 60;
+        display.textContent = seconds < 10 ? minutes + ':0' + seconds : minutes + ':' + seconds;
+    }, 1000);
 }
 
 function clickedPauseEvent(e) {
     if (e.target.classList.contains('pause')) {
-        console.log('pause');
-        paused = true;
+        halted = true;
     }
 }
+
+function clickedStopEvent(e) {
+    if (e.target.classList.contains('stop')) {
+        halted = true;
+        time = twentyFive * 60;
+        display.textContent = twentyFive + ':00';
+    }
+}
+
+function clickedResetEvent(e) {
+    if (e.target.classList.contains('reset')) {
+        halted = true;
+        breakTime = false;
+        time = 25*60;
+        display.textContent = '25:00';
+
+        twentyFive = 25;
+        five = 5;
+        sessionDuration.textContent = '25:00';
+        breakDuration.textContent = '5:00';
+    }
+}
+
+function endOfTime() {
+    console.log('end of time');
+    halted = true;
+    if (breakTime == true) {
+        time = five * 60;
+        display.textContent = five + ':00';
+    } else {
+        time = twentyFive * 60;
+        display.textContent = twentyFive + ':00';
+    }
+    startTimer();
+}
+
+/*
+* add break time
+* fix double clicking of start
+* add holding down of inc/dec
+* reset timer if reaches 0
+*/
