@@ -43,8 +43,7 @@ a {
     align-items: center;
     justify-content: space-evenly;
     align-content: flex-start;
-    width: 60vw;
-    height: 20%;
+    height: 20vh;
 }
 
 .display {
@@ -70,7 +69,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 45vw;
+    width: 600px;
 }
 
 .control {
@@ -117,7 +116,7 @@ a {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    width: 60vw;
+    width: 900px;
 }
 
 .adjust-session-container {
@@ -153,7 +152,7 @@ a {
     font-family: 'Open Sans';
     font-size: 1em;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     border-radius: 25px;
     border: 2px solid #fca311;
     background-color: #fca311;
