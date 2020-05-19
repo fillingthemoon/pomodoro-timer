@@ -208,7 +208,11 @@ function clickedStopEvent(e) {
         clickedStartOnceAlready = false;
         halted = true;
         time = breakTime == true ? five * 60 : twentyFive * 60;
-        display.textContent = breakTime == true ? five + ':00' : twentyFive + ':00';
+        if (breakTime == true) {
+            display.textContent = five < 10 ? '0' + five + ':00' : five + ':00';
+        } else {
+            display.textContent = twentyFive < 10 ? '0' + twentyFive + ':00' : twentyFive + ':00';
+        }
     }
 }
 
