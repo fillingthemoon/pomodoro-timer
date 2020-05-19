@@ -1,8 +1,12 @@
-.layout-container {
+body {
     background-color: #131636;
+}
+
+.layout-container {
     border-radius: 40px;
     display: flex;
     flex-direction: column;
+    flex-wrap: no-wrap;
     align-items: center;
     font-family: Comfortaa; 
     height: 98vh;
@@ -216,7 +220,7 @@ p {
     margin: 10px;
     color: #6e6f80;
     bottom: 0;
-    padding: 15px;
+    padding: 5px;
     position: absolute;
 }
 
@@ -226,7 +230,7 @@ path:hover {
 
 .bottom {
     order: 3;
-    height: 300px;
+    height: 250px;
     width: 100vw;
     font-size: 0.5em;
     text-align: left;
