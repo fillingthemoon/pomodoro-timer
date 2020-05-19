@@ -158,7 +158,7 @@ function clickedStartEvent(e) {
         if (clickedStartOnceAlready) {
             return;
         } else {
-            clickedStartOnceAlready = false;
+            clickedStartOnceAlready = true;
         }
         startTimer();
     }
