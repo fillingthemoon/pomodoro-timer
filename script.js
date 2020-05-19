@@ -136,7 +136,7 @@ function clickedIncDecEvent(e) {
     } else if (e.target.classList.contains('adjust-break')) {
         if (e.target.id == 'inc') {
             five = five < 59 ? five + 1 : five;
-        } else if (e.target.classList.contains('adjust-break') && e.target.id == 'dec') {
+        } else if (e.target.id == 'dec') {
             five = five > 1 ? five - 1 : five;
         }
         breakDuration.textContent = five + ':00';
@@ -158,7 +158,7 @@ function clickedStartEvent(e) {
         if (clickedStartOnceAlready) {
             return;
         } else {
-            clickedStartOnceAlready = true;
+            clickedStartOnceAlready = false;
         }
         startTimer();
     }
@@ -195,8 +195,8 @@ function clickedStopEvent(e) {
     if (e.target.classList.contains('stop')) {
         clickedStartOnceAlready = false;
         halted = true;
-        time = twentyFive * 60;
-        display.textContent = twentyFive + ':00';
+        time = breakTime == true ? five * 60 : twentyFive * 60;
+        display.textContent = breakTime == true ? five + ':00' : twentyFive + ':00';
     }
 }
 
@@ -207,7 +207,6 @@ function clickedResetEvent(e) {
         breakTime = false;
         time = 25*60;
         display.textContent = '25:00';
-
         twentyFive = 25;
         five = 5;
         sessionDuration.textContent = '25:00';
