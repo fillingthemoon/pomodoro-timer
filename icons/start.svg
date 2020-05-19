@@ -7,15 +7,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:version="1.0beta2 (2b71d25, 2019-12-03)"
-   height="70.000038"
-   width="64"
-   sodipodi:docname="noun_play_1914265.svg"
-   id="svg18"
-   viewBox="0 0 64 70.000038"
-   y="0px"
+   version="1.1"
    x="0px"
-   version="1.1">
+   y="0px"
+   viewBox="0 0 64 70.000038"
+   id="svg18"
+   sodipodi:docname="start.svg"
+   width="64"
+   height="70.000038"
+   inkscape:version="1.0beta2 (2b71d25, 2019-12-03)">
   <metadata
      id="metadata24">
     <rdf:RDF>
@@ -30,39 +30,40 @@
   <defs
      id="defs22" />
   <sodipodi:namedview
-     inkscape:current-layer="svg18"
-     inkscape:window-maximized="0"
-     inkscape:window-y="23"
-     inkscape:window-x="0"
-     inkscape:cy="47.87205"
-     inkscape:cx="43.160714"
-     inkscape:zoom="5.376"
-     showgrid="false"
-     id="namedview20"
-     inkscape:window-height="859"
-     inkscape:window-width="1664"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0"
-     guidetolerance="10"
-     gridtolerance="10"
-     objecttolerance="10"
-     borderopacity="1"
-     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
      bordercolor="#666666"
-     pagecolor="#ffffff" />
+     inkscape:document-rotation="0"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1664"
+     inkscape:window-height="859"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="5.376"
+     inkscape:cx="43.160714"
+     inkscape:cy="47.87205"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg18" />
   <g
-     id="g12"
-     transform="translate(-18,-967.36215)">
+     style="fill:#47e4bb;fill-opacity:1"
+     transform="translate(-18,-967.36215)"
+     id="g12">
     <path
-       inkscape:connector-curvature="0"
-       id="path10"
-       overflow="visible"
-       display="inline"
-       visibility="visible"
-       marker="none"
-       stroke="none"
-       fill="#000000"
+       style="color:#000000;enable-background:accumulate;fill:#47e4bb;fill-opacity:1"
        d="m 18,1028.9228 c 0.14842,6.5177 6.82362,10.4644 12.67182,7.3615 l 47.0288,-26.6902 C 80.26202,1008.1385 82,1005.4715 82,1002.346 c 0,-3.12559 -1.73798,-5.79259 -4.29938,-7.24819 l -47.0288,-26.65233 c -5.8482,-3.1029 -12.5234,0.806 -12.67182,7.3237 z"
-       style="color:#000000;enable-background:accumulate" />
+       fill="#000000"
+       stroke="none"
+       marker="none"
+       visibility="visible"
+       display="inline"
+       overflow="visible"
+       id="path10"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

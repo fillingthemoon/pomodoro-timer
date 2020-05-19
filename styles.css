@@ -9,6 +9,32 @@
     width: 99vw;
 }
 
+.mute-toggle-container {
+    align-items: left;
+    width: 100vw;
+    height: 0px;
+}
+
+.mute-toggle-button {
+    border: transparent;
+    background-color: transparent;
+    outline: none;
+}
+
+.mute-toggle {
+    padding: 30px;
+    height: 40px;
+    width: 40px;
+}
+
+.mute-toggle:hover {
+    transform: scale(1.1);
+}
+
+.mute-toggle:active {
+    transform: translate(0px, 0.5em);
+}
+
 header {
     order: 1;
 
@@ -52,15 +78,34 @@ a:hover {
     justify-content: space-evenly;
 }
 
-.display {
+.display-container {
     order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 18em;
+}
 
+.status {
+    text-align: center; 
+    color: #f2f4f7;
+    font-weight: bold;
+    font-size: 3em;
+    animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.display {
     text-align: center;
     display: grid;
     align-items: center;
     width: 4em;
     height: 1.5em;
-    font-family: Comfortaa; 
     font-weight: bold;
     font-size: 6em;
     letter-spacing: 0.2em;
@@ -90,20 +135,15 @@ img {
     border: transparent;
     outline: none;
     transition: 0.2s;
-    height: 70px;
-    width: 70px;
-}
-
-.start, .pause {
-    filter: invert(94%) sepia(84%) saturate(733%) hue-rotate(83deg) brightness(98%) contrast(82%);
-}
-
-.stop, .reset {
-    filter: invert(55%) sepia(79%) saturate(4336%) hue-rotate(330deg) brightness(109%) contrast(101%);
+    height: 80px;
 }
 
 .control:hover {
     transform: scale(1.1);
+}
+
+.control:active {
+    transform: translate(0px, 0.3em);
 }
 
 .reset:hover {
@@ -144,7 +184,6 @@ img {
 } 
 
 #twenty-five, #five {
-    font-family: Comfortaa;
     font-size: 3em;
     font-weight: bold;
     color: #6b76ff;
@@ -161,22 +200,21 @@ img#inc, img#dec {
     border: transparent;
     background-color: transparent;
     outline: none;
-    filter: invert(74%) sepia(93%) saturate(1336%) hue-rotate(357deg) brightness(109%) contrast(98%);
     transition: 0.2s;
 }
 
 #inc:hover {
-    transform: scale(1.1) translate(0px, -0.5em);
+    transform: scale(1.1) translate(0px, -0.3em);
 }
 
 #dec:hover {
-    transform: scale(1.1) translate(0px, 0.5em);
+    transform: scale(1.1) translate(0px, 0.3em);
 }
 
 p {
     font-size: 0.8em;
     margin: 10px;
-    color: DarkGray;
+    color: #6e6f80;
     bottom: 0;
     padding: 15px;
     position: absolute;
@@ -190,6 +228,6 @@ path:hover {
     order: 3;
     height: 300px;
     width: 100vw;
-    font-size: 0.8em;
+    font-size: 0.5em;
     text-align: left;
 }

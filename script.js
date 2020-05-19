@@ -1,10 +1,24 @@
 // design
 const timerContainer = document.querySelector('.timer-container');
 
+// display container and display
+const displayContainer = document.createElement('div');
+displayContainer.classList.add('display-container');
+
+// status
+const status = document.createElement('div');
+status.classList.add('status');
+status.textContent = 'In session';
+displayContainer.appendChild(status);
+
+// display
 const display = document.createElement('div');
 display.classList.add('display');
 display.textContent = '25:00';
+displayContainer.appendChild(display);
 
+
+// controls container and controls
 const controlsContainer = document.createElement('div');
 controlsContainer.classList.add('controls-container');
 let controlsArr = ['start', 'pause', 'stop', 'reset'];
@@ -70,12 +84,32 @@ for (i of breakArr) {
 }
 
 adjustContainer.appendChild(adjustSessionContainer);
-adjustContainer.appendChild(display);
+adjustContainer.appendChild(displayContainer);
 adjustContainer.appendChild(adjustBreakContainer);
 timerContainer.appendChild(adjustContainer);
 
-// function
+// functions
 const buttons = document.querySelector('.layout-container'); 
+
+// sounds
+const notify = document.createElement('audio');
+notify.classList.add('notify');
+notify.src = 'sounds/notify.wav';
+notify.muted = false;
+const clickedMuteToggle = buttons.addEventListener('click', clickedMuteToggleEvent);
+
+function clickedMuteToggleEvent(e) {
+    if (e.target.classList.contains('mute-toggle')) {
+        if (notify.muted) {
+            notify.muted = false;
+            e.target.src = 'icons/unmute.svg';
+            notify.play();
+        } else {
+            notify.muted = true;
+            e.target.src = 'icons/mute.svg';
+        }
+    }
+}
 
 const clickedSessionInc = buttons.addEventListener('mousedown', clickedIncDecEvent);
 const sessionDuration = document.getElementById('twenty-five'); 
@@ -85,6 +119,7 @@ let five = 5;
 
 let time = twentyFive * 60;
 let breakTime = false;
+let clickedStartOnceAlready = false; 
 
 function clickedIncDecEvent(e) {
     if (e.target.classList.contains('adjust-session')) {
@@ -112,7 +147,7 @@ function clickedIncDecEvent(e) {
     }
 }
 
-const clickedPlay = buttons.addEventListener('click', clickedStartEvent);
+const clickedStart = buttons.addEventListener('click', clickedStartEvent);
 const clickedPause = buttons.addEventListener('click', clickedPauseEvent);
 const clickedStop = buttons.addEventListener('click', clickedStopEvent);
 const clickedReset = buttons.addEventListener('click', clickedResetEvent);
@@ -120,6 +155,11 @@ const clickedReset = buttons.addEventListener('click', clickedResetEvent);
 let halted = false;
 function clickedStartEvent(e) {
     if (e.target.classList.contains('start')) {
+        if (clickedStartOnceAlready) {
+            return;
+        } else {
+            clickedStartOnceAlready = true;
+        }
         startTimer();
     }
 }
@@ -146,12 +186,14 @@ function startTimer() {
 
 function clickedPauseEvent(e) {
     if (e.target.classList.contains('pause')) {
+        clickedStartOnceAlready = false;
         halted = true;
     }
 }
 
 function clickedStopEvent(e) {
     if (e.target.classList.contains('stop')) {
+        clickedStartOnceAlready = false;
         halted = true;
         time = twentyFive * 60;
         display.textContent = twentyFive + ':00';
@@ -160,6 +202,7 @@ function clickedStopEvent(e) {
 
 function clickedResetEvent(e) {
     if (e.target.classList.contains('reset')) {
+        clickedStartOnceAlready = false;
         halted = true;
         breakTime = false;
         time = 25*60;
@@ -173,21 +216,22 @@ function clickedResetEvent(e) {
 }
 
 function endOfTime() {
-    console.log('end of time');
+    notify.play()
     halted = true;
     if (breakTime == true) {
         time = five * 60;
         display.textContent = five + ':00';
+        status.textContent = 'On break';
+        status.style.color = '#ff5858';
     } else {
         time = twentyFive * 60;
         display.textContent = twentyFive + ':00';
+        status.textContent = 'In session';
+        status.style.color = '#47e4bb';
     }
     startTimer();
 }
 
 /*
-* add break time
-* fix double clicking of start
 * add holding down of inc/dec
-* reset timer if reaches 0
 */
