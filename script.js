@@ -131,7 +131,7 @@ function clickedIncDecEvent(e) {
         sessionDuration.textContent = twentyFive + ':00';
         if (breakTime == false) {
             time = twentyFive * 60;
-            display.textContent = twentyFive + ':00';
+            display.textContent = twentyFive < 10 ? '0' + twentyFive + ':00' : twentyFive + ':00';
         }
     } else if (e.target.classList.contains('adjust-break')) {
         if (e.target.id == 'inc') {
@@ -142,7 +142,7 @@ function clickedIncDecEvent(e) {
         breakDuration.textContent = five + ':00';
         if (breakTime == true) {
             time = five * 60;
-            display.textContent = five + ':00';
+            display.textContent = five < 10 ? '0' + five + ':00' : five + ':00';
         }
     }
 }
@@ -180,7 +180,19 @@ function startTimer() {
         }
         minutes = Math.floor(time / 60);
         seconds = time % 60;
-        display.textContent = seconds < 10 ? minutes + ':0' + seconds : minutes + ':' + seconds;
+        if (minutes < 10) {
+            if (seconds < 10) {
+                display.textContent = '0' + minutes + ':0' + seconds;
+            } else {
+                display.textContent = '0' + minutes + ':' + seconds; 
+            }   
+        } else {
+            if (seconds < 10) {
+                display.textContent = minutes + ':0' + seconds;
+            } else {
+                display.textContent = minutes + ':' + seconds;
+            }   
+        }
     }, 1000);
 }
 
